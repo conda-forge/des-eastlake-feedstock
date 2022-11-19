@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 5cfad7e00cda716d663238338b2285f164df1b95ebdd41c64412933e568f153b
+  sha256: 4b8603c396668f4abfee783053a83fb78c18654e4411859dbb69066b8c86b574
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
