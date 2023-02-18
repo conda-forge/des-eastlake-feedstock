@@ -1,5 +1,5 @@
 {% set name = "des-eastlake" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 4b8603c396668f4abfee783053a83fb78c18654e4411859dbb69066b8c86b574
+  sha256: 3bf7c3a11003f0735e86ca42e8de7a43063a5a090df3c79b9791ab50227493b7
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
   skip: true  # [win]
-  number: 4
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -40,15 +40,17 @@ requirements:
     - libopenblas
     - python
     - astropy
-    - cfitsio
+    - cfitsio  # for fpack and builds
     - des-desmeds
-    - des-pizza-cutter
+    - des-pixcorrect
     - des-pizza-cutter-metadetect
     - esutil
     - fitsio
     - galsim
     - h5py
+    - importlib_metadata
     - joblib
+    - lsstdesc-coord
     - matplotlib-base
     - meds
     - metadetect
@@ -56,13 +58,12 @@ requirements:
     - numpy
     - numba
     - piff
-    - psfex
     - pixmappy
-    - pip
+    - psfex
     - pyyaml
     - scipy
+    - setuptools
     - tqdm
-    - importlib_metadata
 
 test:
   imports:
