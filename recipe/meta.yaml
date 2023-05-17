@@ -1,5 +1,5 @@
 {% set name = "des-eastlake" %}
-{% set version = "0.5.1" %}
+{% set version = "0.5.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
-  sha256: efa9f25ed16406676de74f8ffb6c2ddfdbb4209cc33481db46d2e02a47c86f0c
+  sha256: 1b3a42f5bc85264bd1e5a3a5cceb1d921ebe8cc1b782c441c413559ff541d4c0
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
