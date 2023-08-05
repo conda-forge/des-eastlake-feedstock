@@ -11,7 +11,7 @@
 +        and os.path.exists(os.path.expandvars("${BUILD_PREFIX}/share/gnuconfig"))
 +    ):
 +        print(">>> updating config.sub and config.guess", flush=True)
-+        _run_shell("cp ${BUILD_PREFIX}/share/gnuconfig/config.* .")
++        _run_shell("mkdir -p autoconf && cp ${BUILD_PREFIX}/share/gnuconfig/config.* autoconf/.")
 +
 +
  def _build_swarp():
