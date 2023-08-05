@@ -1,0 +1,56 @@
+--- a/setup.py
++++ b/setup.py
+@@ -82,6 +82,16 @@
+     return cc, cldflags, prefix_var
+ 
+ 
++def _update_autotools():
++    if (
++        "CONDA_BUILD" in os.environ
++        and "BUILD_PREFIX" in os.environ
++        and os.path.exists(os.path.expandvars("${BUILD_PREFIX}/share/gnuconfig"))
++    ):
++        print(">>> updating config.sub and config.guess", flush=True)
++        _run_shell("cp ${BUILD_PREFIX}/share/gnuconfig/config.* .")
++
++
+ def _build_swarp():
+     cc, cldflags, prefix_var = _get_cc_flags_prefix()
+     cwd = os.path.abspath(os.getcwd())
+@@ -90,14 +100,20 @@
+             _run_shell("cp %s/src/swarp-2.40.1.tar.gz ." % cwd)
+             _run_shell("tar -xzvf swarp-2.40.1.tar.gz")
+             with pushd("swarp-2.40.1"):
+-                if cc is not None and cldflags is not None:
+-                    _run_shell(
+-                        "CC=%s "
+-                        "CFLAGS=%s "
+-                        "./configure --prefix=%s" % (cc, cldflags, tmpdir)
+-                    )
+-                else:
+-                    _run_shell("./configure --prefix=%s" % tmpdir)
++                try:
++                    _update_autotools()
++                    if cc is not None and cldflags is not None:
++                        _run_shell(
++                            "CC=%s "
++                            "CFLAGS=%s "
++                            "./configure --prefix=%s" % (cc, cldflags, tmpdir)
++                        )
++                    else:
++                        _run_shell("./configure --prefix=%s" % tmpdir)
++                except Exception:
++                    _run_shell("cat config.log")
++                    raise
++
+                 _run_shell("make")
+                 _run_shell("make install")
+             _run_shell("cp bin/swarp %s/eastlake/astromatic/." % cwd)
+@@ -112,6 +128,7 @@
+             _run_shell("tar -xzvf src-extractor-2.24.4.tar.gz")
+             with pushd("sextractor-2.24.4"):
+                 try:
++                    _update_autotools()
+                     _run_shell("sh autogen.sh")
+                     if cc is not None and cldflags is not None:
+                         _run_shell(
