@@ -1,2 +1,2 @@
-cfitsio
- - "4.3.0"
+cfitsio:
+ - 4.3.0
