@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 6b8ef84968c7988efe484b2201530ec14f6b6048490de74db967ba2cab271e9c
+  sha256: 1cc6152ec060ddfa1124989d16e3ac0bca6dfc6bac0e5fc3132a8f38ca851878
   patches:
     - 0000_updated_autotools_guess.patch
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
   skip: true  # [win]
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
