@@ -15,7 +15,6 @@ build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
   skip: true  # [win]
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
