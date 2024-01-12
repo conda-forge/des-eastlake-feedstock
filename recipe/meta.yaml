@@ -1,5 +1,5 @@
 {% set name = "des-eastlake" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
-  sha256: b4a687beae2ec0477a80616c0047e1ccbf71ff2de538e61aad788105413f86ec
+  sha256: 23d0025f1fdcc3a8c5b2b6870e7e4998f75c445bf82398652689fd02d69cbda1
   patches:
     - 0000_updated_autotools_guess.patch
 
