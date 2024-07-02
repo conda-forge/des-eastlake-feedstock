@@ -13,7 +13,7 @@ source:
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
-  skip: true  # [win]
+  skip: true  # [win or py < 312]
   number: 2
 
 requirements:
