@@ -72,6 +72,12 @@ requirements:
     - piff ==99999999999999999
 
 test:
+  downstreams:
+    - des-pizza-cutter
+    - des-desmeds
+    - des-y6utils
+    - des-pizza-cutter-metadetect
+    - des-montara
   imports:
     - eastlake
     - piff
