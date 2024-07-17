@@ -85,13 +85,14 @@ test:
 
 about:
   home: https://github.com/des-science/eastlake
-  license: BSD-3-Clause AND GPL-3.0-only
+  license: NSD-2-Clause AND BSD-3-Clause AND GPL-3.0-only
   license_file:
     - LICENSE
     - LICENSE-srcex
     - LICENSE-swarp
     - COPYRIGHT-srcex
     - COPYRIGHT-swarp
+    - piff_package/LICENSE
   summary: Y6 processing pipelines for balrog and image sims
 
 extra:
