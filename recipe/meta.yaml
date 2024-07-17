@@ -49,7 +49,7 @@ requirements:
     - des-pizza-cutter-metadetect
     - esutil
     - fitsio
-    - galsim <2.5
+    - galsim >=2.3,<2.5
     - h5py
     - importlib_metadata
     - joblib
@@ -58,7 +58,7 @@ requirements:
     - meds
     - metadetect
     - ngmix
-    - numpy <2
+    - numpy >=1.17,<2
     - numba
     - pixmappy
     - psfex
