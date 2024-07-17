@@ -93,6 +93,7 @@ test:
     - meanify --help
     - run-metadetect-on-slices --help
     - python -c "import eastlake; assert eastlake.__version__ == '{{ version }}'"
+    - python -c "import piff.pixelgrid; piff.pixelgrid.set_apodize_params(None)"
 
 about:
   home: https://github.com/des-science/eastlake
