@@ -75,15 +75,15 @@ requirements:
     - piff ==99999999999999999
 
 test:
-  downstreams:
-    - des-pizza-cutter
-    - des-desmeds
-    - des-y6utils
-    - des-pizza-cutter-metadetect
-    - des-montara
   imports:
     - eastlake
     - piff
+    - desmeds
+    - des_y6utils
+    - des_y6utils.piff
+    - des_y6utils.mdet
+    - pizza_cutter
+    - pizza_cutter_metadetect
   commands:
     - eastlake-swarp -dd
     - eastlake-src-extractor -dd
@@ -91,6 +91,7 @@ test:
     - piffify --help
     - plotify --help
     - meanify --help
+    - run-metadetect-on-slices --help
     - python -c "import eastlake; assert eastlake.__version__ == '{{ version }}'"
 
 about:
