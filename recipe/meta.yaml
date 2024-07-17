@@ -60,7 +60,7 @@ requirements:
     - pixmappy
     - psfex
     - pyyaml
-    - scipy
+    - scipy <1.14
     - setuptools
     - tqdm
     - lsstdesc-coord >=1.2
