@@ -85,7 +85,7 @@ test:
 
 about:
   home: https://github.com/des-science/eastlake
-  license: NSD-2-Clause AND BSD-3-Clause AND GPL-3.0-only
+  license: BSD-2-Clause AND BSD-3-Clause AND GPL-3.0-only
   license_file:
     - LICENSE
     - LICENSE-srcex
