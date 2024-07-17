@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/des-eastlake-fe
 
 Home: https://github.com/des-science/eastlake
 
-Package license: BSD-3-Clause AND GPL-3.0-only
+Package license: BSD-2-Clause AND BSD-3-Clause AND GPL-3.0-only
 
 Summary: Y6 processing pipelines for balrog and image sims
 

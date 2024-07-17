@@ -1,5 +1,5 @@
 {% set name = "des-eastlake" %}
-{% set version = "0.8.2" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,12 @@ package:
 
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a9867011d8715571d97973078a1742df14643b5420842112c70a49529e714028
-  patches:
-    - 0000_updated_autotools_guess.patch
+  sha256: 4d9c180274628364b554bbd8a95e9827a8aca917511f43ebeb0ed52518271f97
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
   skip: true  # [win or py >= 312 or py <= 38]
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -50,46 +48,63 @@ requirements:
     - des-pixcorrect
     - des-pizza-cutter-metadetect
     - esutil
-    - fitsio
-    - galsim
+    - galsim >=2.3,<2.5
     - h5py
     - importlib_metadata
     - joblib
-    - lsstdesc-coord
-    - matplotlib-base
     - meds
     - metadetect
     - ngmix
-    - numpy
+    - numpy >=1.17,<2
     - numba
-    - piff
     - pixmappy
     - psfex
     - pyyaml
-    - scipy
+    - scipy <1.14
     - setuptools
     - tqdm
+    - lsstdesc-coord >=1.2
+    - treecorr >=4.3.1
+    - fitsio >=1.0
+    - matplotlib-base >=3.3
+    - treegp >=0.6
+    - threadpoolctl >=3.1
   run_constrained:
-    - des_montara >=0.7.0
+    - des-montara >=0.10.0
+    # we package a special version of Piff now
+    - piff ==99999999999999999
 
 test:
   imports:
     - eastlake
+    - piff
+    - desmeds
+    - des_y6utils
+    - des_y6utils.piff
+    - des_y6utils.mdet
+    - pizza_cutter
+    - pizza_cutter_metadetect
   commands:
     - eastlake-swarp -dd
     - eastlake-src-extractor -dd
     - run-eastlake-sim --help
+    - piffify --help
+    - plotify --help
+    - meanify --help
+    - run-metadetect-on-slices --help
     - python -c "import eastlake; assert eastlake.__version__ == '{{ version }}'"
+    - python -c "import piff.pixelgrid; piff.pixelgrid.set_apodize_params(None)"
 
 about:
   home: https://github.com/des-science/eastlake
-  license: BSD-3-Clause AND GPL-3.0-only
+  license: BSD-2-Clause AND BSD-3-Clause AND GPL-3.0-only
   license_file:
     - LICENSE
     - LICENSE-srcex
     - LICENSE-swarp
     - COPYRIGHT-srcex
     - COPYRIGHT-swarp
+    - piff_package/LICENSE
   summary: Y6 processing pipelines for balrog and image sims
 
 extra:
