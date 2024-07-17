@@ -1,5 +1,5 @@
 {% set name = "des-eastlake" %}
-{% set version = "0.8.2" %}
+{% set version = "0.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a9867011d8715571d97973078a1742df14643b5420842112c70a49529e714028
+  sha256: 4d9c180274628364b554bbd8a95e9827a8aca917511f43ebeb0ed52518271f97
   patches:
     - 0000_updated_autotools_guess.patch
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
   skip: true  # [win or py >= 312 or py <= 38]
-  number: 2
+  number: 0
 
 requirements:
   build:
