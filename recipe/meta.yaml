@@ -74,6 +74,7 @@ requirements:
 test:
   imports:
     - eastlake
+    - piff
   commands:
     - eastlake-swarp -dd
     - eastlake-src-extractor -dd
