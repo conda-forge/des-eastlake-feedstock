@@ -8,8 +8,6 @@ package:
 source:
   url: https://github.com/des-science/eastlake/archive/refs/tags/{{ version }}.tar.gz
   sha256: 4d9c180274628364b554bbd8a95e9827a8aca917511f43ebeb0ed52518271f97
-  patches:
-    - 0000_updated_autotools_guess.patch
 
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
@@ -62,7 +60,6 @@ requirements:
     - ngmix
     - numpy
     - numba
-    - piff
     - pixmappy
     - psfex
     - pyyaml
@@ -71,6 +68,8 @@ requirements:
     - tqdm
   run_constrained:
     - des_montara >=0.7.0
+    # we package a special version of Piff now
+    - piff ==99999999999999999
 
 test:
   imports:
@@ -79,6 +78,9 @@ test:
     - eastlake-swarp -dd
     - eastlake-src-extractor -dd
     - run-eastlake-sim --help
+    - piffify --help
+    - plotify --help
+    - meanify --help
     - python -c "import eastlake; assert eastlake.__version__ == '{{ version }}'"
 
 about:
