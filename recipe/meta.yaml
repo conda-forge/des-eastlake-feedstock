@@ -12,7 +12,7 @@ source:
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
   skip: true  # [win or py >= 312 or py <= 38]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -42,7 +42,7 @@ requirements:
     - openblas
     - libopenblas
     - python
-    - astropy
+    - astropy-base
     - cfitsio  # for fpack and builds
     - des-desmeds >=0.9.17
     - des-pixcorrect
