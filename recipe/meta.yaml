@@ -12,7 +12,7 @@ source:
 build:
   # this recipe is not noarch due to using the scripts kwarg w/ setuptools
   skip: true  # [win or py >= 312 or py <= 38]
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -21,16 +21,17 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - make
+    - libtool
+    - autoconf
+    - automake
     - gnuconfig  # [unix]
   host:
     - python
     - pip
+    - setuptools
     - setuptools_scm
     - setuptools_scm_git_archive
     - fftw
-    - libtool
-    - autoconf
-    - automake
     - cfitsio
     # only builds against openblas
     - openblas
@@ -42,7 +43,7 @@ requirements:
     - openblas
     - libopenblas
     - python
-    - astropy
+    - astropy-base
     - cfitsio  # for fpack and builds
     - des-desmeds >=0.9.17
     - des-pixcorrect
@@ -50,7 +51,7 @@ requirements:
     - esutil
     - galsim >=2.3,<2.5
     - h5py
-    - importlib_metadata
+    - importlib-metadata
     - joblib
     - meds
     - metadetect
