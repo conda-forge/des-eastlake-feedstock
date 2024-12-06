@@ -21,16 +21,17 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - make
+    - libtool
+    - autoconf
+    - automake
     - gnuconfig  # [unix]
   host:
     - python
     - pip
+    - setuptools
     - setuptools_scm
     - setuptools_scm_git_archive
     - fftw
-    - libtool
-    - autoconf
-    - automake
     - cfitsio
     # only builds against openblas
     - openblas
@@ -50,7 +51,7 @@ requirements:
     - esutil
     - galsim >=2.3,<2.5
     - h5py
-    - importlib_metadata
+    - importlib-metadata
     - joblib
     - meds
     - metadetect
